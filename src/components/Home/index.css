@@ -8,7 +8,6 @@
   flex-direction: row;
   background-color: rgb(237, 237, 242);
   flex-grow: grow;
-
   padding: 35px;
 }
 .home-top-rated-container {
@@ -82,4 +81,18 @@
   color: white;
   padding: 5px;
   border-radius: 5px;
+}
+
+.slider-container {
+  color: #00f;
+  padding: 20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: blue;
+}
+
+.slick-prev:before {
+  content: '←';
 }

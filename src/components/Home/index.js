@@ -21,10 +21,11 @@ const topRatedApiStatuses = {
 const settings = {
   dots: true,
   infinite: false,
-  autoplay: true,
+  autoplay: false,
   speed: 2000,
-  slidesToScroll: 1,
   slidesToShow: 4,
+  slidesToScroll: 1,
+
   responsive: [
     {
       breakpoint: 1024,
@@ -93,35 +94,37 @@ class Home extends Component {
     const {topRatedBooks} = this.state
 
     return (
-      <Slider {...settings}>
-        {topRatedBooks.map(eachBook => {
-          const {id, title, coverPic, authorName} = eachBook
-          const onClickedTopRatedBook = () => {
-            const {history} = this.props
-            history.push(`/books/${id}`)
-          }
+      <div className="slider-container">
+        <Slider {...settings}>
+          {topRatedBooks.map(eachBook => {
+            const {id, title, coverPic, authorName} = eachBook
+            const onClickedTopRatedBook = () => {
+              const {history} = this.props
+              history.push(`/books/${id}`)
+            }
 
-          return (
-            <div className="top-rated-book-item-container" key={id}>
-              <button
-                onClick={onClickedTopRatedBook}
-                className="top-rated-card-btn"
-                type="button"
-              >
-                <div className="top-rated-book-image-container">
-                  <img
-                    className="top-rated-book-image"
-                    src={coverPic}
-                    alt={title}
-                  />
-                </div>
-                <h1 className="top-rated-book-name">{title}</h1>
-                <p className="top-rated-book-author">{authorName}</p>
-              </button>
-            </div>
-          )
-        })}
-      </Slider>
+            return (
+              <div className="top-rated-book-item-container" key={id}>
+                <button
+                  onClick={onClickedTopRatedBook}
+                  className="top-rated-card-btn"
+                  type="button"
+                >
+                  <div className="top-rated-book-image-container">
+                    <img
+                      className="top-rated-book-image"
+                      src={coverPic}
+                      alt={title}
+                    />
+                  </div>
+                  <h1 className="top-rated-book-name">{title}</h1>
+                  <p className="top-rated-book-author">{authorName}</p>
+                </button>
+              </div>
+            )
+          })}
+        </Slider>
+      </div>
     )
   }
 

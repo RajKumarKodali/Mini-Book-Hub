@@ -8,6 +8,7 @@
   box-shadow: 10px black;
   align-items: center;
   padding: 10px;
+  transition-property: all;
 }
 .header-navbar-tabs-container {
   display: flex;
